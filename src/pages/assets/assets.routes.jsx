@@ -10,7 +10,7 @@ export const assetsPage = [
     component: <AssetsPage />,
     icon: "ni ni-app text-info",
     layout: "/admin",
-    key: "Categories",
+    key: "Assets",
     allowedRoles: [...allAuthRoles],
     sideBarGroup: 2,
   },

@@ -2,7 +2,6 @@ import { analyticsPage } from "pages/analytics";
 import { assetsPage } from "pages/assets";
 import { authMenu } from "pages/auth";
 import { categoriesPage } from "pages/categories";
-// import { dashboardMenu } from "pages/dashboards";
 import { documentsMenu } from "pages/documents";
 import { filesPage } from "pages/files";
 import { groupMenu } from "pages/groups";
