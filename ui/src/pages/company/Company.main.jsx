@@ -7,6 +7,10 @@ import {
   CardHeader,
   Col,
   Container,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   FormGroup,
   Row,
   TabContent,
@@ -19,6 +23,16 @@ import { COMPANY_ANALYTICS_MAIN } from "./analytics/company-analytics.routes.con
 import { CompanyAnalyticsMainPanel } from "./analytics/CompanyAnalyticsMain.panel";
 import { BUSINESS_UNIT_MAIN } from "./business-unit/business-unit.routes.consts";
 import { BusinessUnitMainPanel } from "./business-unit/BusinessUnitMain.panel";
+import {
+  DEMO_FORMS_ALERTS,
+  DEMO_FORMS_WIDGETS,
+  DEMO_LAYOUTS_CARD,
+  DEMO_LAYOUTS_GRID,
+} from "./company.routes.const";
+import { DemoAlertsPanel } from "./demos/forms/alerts/DemoAlerts.panel";
+import DemoFormsPanel from "./demos/forms/widgets/DemoForms.panel";
+import { DemoCardsPanel } from "./demos/layout/cards/DemoCards.panel";
+import DemoLayoutsPanel from "./demos/layout/grid/DemoLayouts.panel";
 import { DEPARTMENT_MAIN } from "./department/department.routes.consts";
 import { DepartmentMainPanel } from "./department/DepartmentMain.panel";
 import { EMPLOYEE_MAIN } from "./employee/employee.routes.consts";
@@ -36,7 +50,7 @@ import { TEAM_MAIN } from "./team/team.routes.consts";
 
 export const CompanyPage = () => {
   const [activeTab, setActiveTab] = useState(EMPLOYEE_MAIN);
-
+  const [activeFormMenu, setActiveFormMenu] = useState(false);
   return (
     <>
       <BoxHeader />
@@ -111,6 +125,53 @@ export const CompanyPage = () => {
                       >
                         Analytics
                       </Button>
+
+                      <Dropdown
+                        isOpen={activeFormMenu}
+                        toggle={() => setActiveFormMenu(!activeFormMenu)}
+                      >
+                        <DropdownToggle
+                          caret
+                          color="primary"
+                          className="shadow-none text-white border-0"
+                        >
+                          Demo Menu
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem
+                            className={`font-weight-bold ${
+                              activeTab == DEMO_FORMS_WIDGETS ? "bg-lighter" : ""
+                            }`}
+                            onClick={() => setActiveTab(DEMO_FORMS_WIDGETS)}
+                          >
+                            Forms
+                          </DropdownItem>
+                          <DropdownItem
+                            className={`font-weight-bold ${
+                              activeTab == DEMO_FORMS_ALERTS ? "bg-lighter" : ""
+                            }`}
+                            onClick={() => setActiveTab(DEMO_FORMS_ALERTS)}
+                          >
+                            Alerts
+                          </DropdownItem>
+                          <DropdownItem
+                            className={`font-weight-bold ${
+                              activeTab == DEMO_LAYOUTS_GRID ? "bg-lighter" : ""
+                            }`}
+                            onClick={() => setActiveTab(DEMO_LAYOUTS_GRID)}
+                          >
+                            Grid Layout
+                          </DropdownItem>
+                          <DropdownItem
+                            className={`font-weight-bold ${
+                              activeTab == DEMO_LAYOUTS_CARD ? "bg-lighter" : ""
+                            }`}
+                            onClick={() => setActiveTab(DEMO_LAYOUTS_CARD)}
+                          >
+                            Card Layout
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </Dropdown>
                     </FormGroup>
                   </Col>
                 </Row>
@@ -144,6 +205,19 @@ export const CompanyPage = () => {
                   </TabPane>
                   <TabPane tabId={COMPANY_ANALYTICS_MAIN}>
                     <CompanyAnalyticsMainPanel />
+                  </TabPane>
+
+                  <TabPane tabId={DEMO_LAYOUTS_CARD}>
+                    <DemoCardsPanel />
+                  </TabPane>
+                  <TabPane tabId={DEMO_LAYOUTS_GRID}>
+                    <DemoLayoutsPanel />
+                  </TabPane>
+                  <TabPane tabId={DEMO_FORMS_WIDGETS}>
+                    <DemoFormsPanel />
+                  </TabPane>
+                  <TabPane tabId={DEMO_FORMS_ALERTS}>
+                    <DemoAlertsPanel />
                   </TabPane>
                 </TabContent>
               </CardBody>

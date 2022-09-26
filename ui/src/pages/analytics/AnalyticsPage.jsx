@@ -1,6 +1,6 @@
 import { Card, CardBody, CardHeader, Container, Row } from "reactstrap";
 
-import { BoxHeader } from "../../components/headers";
+import { BoxHeader } from "components/headers";
 
 export const AnalyticsPage = () => {
   return (

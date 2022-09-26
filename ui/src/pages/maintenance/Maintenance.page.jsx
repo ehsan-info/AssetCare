@@ -1,10 +1,8 @@
-import React from "react";
-
-import { Card, CardBody, Container, Row, CardHeader } from "reactstrap";
+import { Card, CardBody, CardHeader, Container, Row } from "reactstrap";
 
 import { BoxHeader } from "components/headers";
 
-export const PurchaseOrdersPage = () => {
+export const MaintenancePage = () => {
   return (
     <>
       <BoxHeader />
@@ -13,7 +11,7 @@ export const PurchaseOrdersPage = () => {
           <div className="col">
             <Card>
               <CardHeader>
-                <h3 className="mb-0">Purchase Orders page</h3>
+                <h3 className="mb-0">Maintenance Page</h3>
               </CardHeader>
               <CardBody />
             </Card>
