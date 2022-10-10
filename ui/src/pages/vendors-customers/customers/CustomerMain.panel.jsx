@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Button, ButtonGroup, TabContent, TabPane } from "reactstrap";
 
@@ -27,6 +28,8 @@ import { SearchCustomersPanel } from "./search-customers/SearchCustomers.panel";
 export const CustomerMainPanel = () => {
   const [activePanel, setActivePanel] = useState(CUSTOMER_SEARCH);
   const [customers, setCustomers] = useState([]);
+  const customer_vendor = useSelector(state => state.customer_vendor);
+  const dispatch = useDispatch();
   useEffect(() => {
     setCustomers(mockCustomers());
   }, []);
@@ -56,14 +59,20 @@ export const CustomerMainPanel = () => {
   // };
 
   const onSearchCustomers = async customerSearchRequest => {
-    console.log(customerSearchRequest);
-    //change customers according to query result
     setCustomers(mockCustomers());
   };
 
   // const onDelete = id => {
   //   console.log(id);
   // };
+  const btnHandler = event => {
+    if (event.classList.contains("customers")) {
+      dispatch({ type: "SET_FIELD", payload: "customers" });
+    } else if (event.classList.contains("vendors")) {
+      dispatch({ type: "SET_FIELD", payload: "vendors" });
+      event.classList.add("bg-gradient-info text-white");
+    }
+  };
 
   return (
     <>
@@ -74,13 +83,28 @@ export const CustomerMainPanel = () => {
         <TabPane className="" tabId={CUSTOMER_SEARCH}>
           <ButtonGroup aria-label="Basic example" role="group">
             <Button
-              className="my-4 ml-4 btn-lg w-100 border border-grey rounded"
+              className={
+                customer_vendor === "vendors"
+                  ? "vendors my-4 border border-grey rounded bg-gradient-info text-white"
+                  : "vendors my-4 border border-grey rounded "
+              }
               color="#F7F7F9"
               type="button"
+              onClick={e => btnHandler(e.target)}
             >
               Vendors
             </Button>
-            <Button className="my-4 border border-grey rounded" color="#F7F7F9" type="button">
+            <Button
+              active
+              className={
+                customer_vendor === "customers"
+                  ? "customers my-4 border border-grey rounded bg-gradient-info text-white"
+                  : "customers my-4 border border-grey rounded "
+              }
+              color="#F7F7F9"
+              type="button"
+              onClick={e => btnHandler(e.target)}
+            >
               Consumers
             </Button>
           </ButtonGroup>

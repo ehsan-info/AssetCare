@@ -31,7 +31,6 @@ const createCustomers = () => {
 };
 
 export const mockCustomers = () => {
-  console.log("In mockCustomers", customers);
   if (customers.length == 0) {
     const calculatedCustomers = createCustomers(howManyCustomers);
     customers.push(...calculatedCustomers);

@@ -12,7 +12,7 @@ import { customersTableColumns } from "./SearchCustomers.table";
 
 export const SearchCustomersPanel = ({ customers }) => {
   // export const SearchCustomersPanel = ({ customers, onDelete, onViewDetails }) => {
-  console.log("!!!", customers);
+
   // export const SearchCustomersPanel = ({ customers, navigateToPanel, onDelete, onViewDetails }) => {
   // const onViewCustomerDetails = e => {
   //   e.preventDefault();
@@ -33,64 +33,6 @@ export const SearchCustomersPanel = ({ customers }) => {
 
   return (
     <>
-      {/* <Row>
-        <div className="col">
-          <Card> */}
-      {/* <CardHeader>
-              <Row>
-                <Col md="3">
-                  <h3 className="col">Vendors & Customers</h3>
-                </Col>
-
-                <Col md={{ offset: 7 }} className="col">
-                  <IconContext.Provider value={{ color: "676C6D", size: "20px" }}>
-                    <div>
-                      <TbBulb className="m-1" role="button" />
-                      <BiBell className="m-1" role="button" />
-                      <CgProfile className="m-1" role="button" />
-                    </div>
-                  </IconContext.Provider>
-                </Col>
-              </Row>
-            </CardHeader> */}
-      {/* <Row>
-              <Col md="3">
-                <ButtonGroup aria-label="Basic example" role="group">
-                  <Button className="m-2 border border-grey rounded" color="#F7F7F9" type="button">
-                    Vendors
-                  </Button>
-                  <Button className="m-2 border border-grey rounded" color="#F7F7F9" type="button">
-                    Consumers
-                  </Button>
-                </ButtonGroup>
-              </Col>
-
-              <Col md="4"></Col>
-              <Col md="3">
-                <FormGroup className="d-flex m-2">
-                  <IconContext.Provider
-                    md=""
-                    value={{ color: "676C6D", size: "30px", padding: "33px" }}
-                  >
-                    <div>
-                      <GoKebabVertical
-                        className="m-2 p-1 border border-grey rounded"
-                        role="button"
-                      />
-                    </div>
-                  </IconContext.Provider>
-                  
-                </FormGroup>
-              </Col>
-            </Row> 
-            <Button
-              className="btn btn-primary rounded-pill"
-              style={{ width: "8rem" }}
-              color="primary"
-              onClick={onCreateNewCustomer}
-            >
-              + Customer
-            </Button> */}
       <ReactTable
         className="mt-n100"
         data={customers}
@@ -99,9 +41,6 @@ export const SearchCustomersPanel = ({ customers }) => {
           // onRemoveButtonClick: onDeleteCustomer,
         })}
       />
-      {/* </Card>
-        </div>
-      </Row> */}
     </>
   );
 };

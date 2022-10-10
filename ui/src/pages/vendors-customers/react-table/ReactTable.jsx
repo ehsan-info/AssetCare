@@ -15,7 +15,6 @@ import {
 
 export const ReactTable = ({ data, columns, selectElement }) => {
   const memoizedData = useMemo(() => data, [data]);
-  console.log("data", data);
   const memoizedColumns = useMemo(() => columns, [columns]);
 
   const {
@@ -97,7 +96,7 @@ export const ReactTable = ({ data, columns, selectElement }) => {
             <GoKebabVertical className="p-1 border border-grey rounded" role="button" />
           </IconContext.Provider>
           <Button
-            className="d-inline ml-2 btn btn-primary rounded-pill btn-sm h-50"
+            className="d-inline ml-2 btn bg-gradient-info border-0 rounded-pill btn-sm h-50"
             style={{ width: "6rem" }}
             color="primary"
             // onClick={onCreateNewCustomer}
