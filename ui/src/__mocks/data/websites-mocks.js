@@ -164,5 +164,5 @@ export const websitesData = [
 ];
 
 export const randomWebsite = () => {
-  return websitesData[randomIntFromInterval(0, 40)];
+  return websitesData[randomIntFromInterval(0, 39)];
 };

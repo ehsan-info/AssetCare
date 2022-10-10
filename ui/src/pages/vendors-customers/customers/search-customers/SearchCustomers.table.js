@@ -7,20 +7,20 @@ export const customersTableColumns = ({ onDetailsButtonClick, onRemoveButtonClic
       Header: "id",
     },
     {
-      accessor: "firstName",
-      Header: "First Name",
-    },
-    {
-      accessor: "lastName",
-      Header: "Last Name",
+      accessor: "name",
+      Header: "Customer Name",
     },
     {
       accessor: "address.address",
       Header: "Address",
     },
     {
-      phone: "phone.phone",
+      accessor: "phone.phone",
       Header: "Phone Number",
+    },
+    {
+      accessor: "customer_type.customer_type",
+      Header: "Customer Type",
     },
     {
       accessor: "website.website",

@@ -4,16 +4,18 @@ import { Col, TabContent, TabPane } from "reactstrap";
 
 import { addressesData } from "__mocks/data/addresses-mocks";
 import { mockCustomers } from "__mocks/data/customers-mocks";
+import { customerTypesData } from "__mocks/data/customerTypes-mocks";
 import { emailsData } from "__mocks/data/emails-mocks";
-import { namesData } from "__mocks/data/names-mocks";
+// import { namesData } from "__mocks/data/names-mocks";
 import { phonesData } from "__mocks/data/phones-mocks";
 import { websitesData } from "__mocks/data/websites-mocks";
 import {
-  namesDataAsSelectOptions,
+  // namesDataAsSelectOptions,
   addressesDataAsSelectOptions,
   emailsDataAsSelectOptions,
   phonesDataAsSelectOptions,
   websitesDataAsSelectOptions,
+  customerTypesDataAsSelectOptions,
 } from "common/category-utils";
 
 import { CreateCustomerPanel } from "./create-customer/CreateCustomer.panel";
@@ -26,17 +28,16 @@ export const CustomerMainPanel = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     setCustomers(mockCustomers());
-    console.log("cunssomeeers", customers);
   }, []);
-  // setCustomers(mockCustomers());
-  // console.log("cunssomeeers", customers);
-  const [currentCustomer, setCurrentCustomer] = useState({});
 
-  const names = namesDataAsSelectOptions(namesData);
+  const [currentCustomer] = useState({}); //setCurrentCustomer
+
+  // const names = namesDataAsSelectOptions(namesData);
   const addresses = addressesDataAsSelectOptions(addressesData);
   const emails = emailsDataAsSelectOptions(emailsData);
   const phones = phonesDataAsSelectOptions(phonesData);
   const websites = websitesDataAsSelectOptions(websitesData);
+  const customer_types = customerTypesDataAsSelectOptions(customerTypesData);
 
   const onCreateNew = newCustomer => {
     console.log("newCustomer", newCustomer);
@@ -47,22 +48,21 @@ export const CustomerMainPanel = () => {
     return partialCustomer;
   };
 
-  const onViewCustomerDetails = id => {
-    const foundCustomer = customers.find(employee => employee.id === id);
-    setCurrentCustomer(foundCustomer);
-    setActivePanel(CUSTOMER_DETAILS);
-  };
+  // const onViewCustomerDetails = id => {
+  //   const foundCustomer = customers.find(employee => employee.id === id);
+  //   setCurrentCustomer(foundCustomer);
+  //   setActivePanel(CUSTOMER_DETAILS);
+  // };
 
   const onSearchCustomers = async customerSearchRequest => {
     console.log(customerSearchRequest);
     //change customers according to query result
     setCustomers(mockCustomers());
-    console.log("customerS", customers);
   };
 
-  const onDelete = id => {
-    console.log(id);
-  };
+  // const onDelete = id => {
+  //   console.log(id);
+  // };
 
   return (
     <Col>
@@ -70,15 +70,16 @@ export const CustomerMainPanel = () => {
         <TabPane tabId={CUSTOMER_SEARCH}>
           <SearchCustomersPanel
             customers={customers}
-            names={names}
+            // names={names}
             addresses={addresses}
             phones={phones}
             emails={emails}
             websites={websites}
+            customer_types={customer_types}
             navigateToPanel={setActivePanel}
             onSearchCustomers={onSearchCustomers}
-            onDelete={onDelete}
-            onViewDetails={onViewCustomerDetails}
+            // onDelete={onDelete}
+            // onViewDetails={onViewCustomerDetails}
           />
         </TabPane>
         <TabPane tabId={CUSTOMER_CREATE}>

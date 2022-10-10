@@ -164,5 +164,5 @@ export const emailsData = [
 ];
 
 export const randomEmail = () => {
-  return emailsData[randomIntFromInterval(0, 40)];
+  return emailsData[randomIntFromInterval(0, 39)];
 };

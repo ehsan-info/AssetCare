@@ -203,5 +203,5 @@ export const addressesData = [
   },
 ];
 export const randomAddress = () => {
-  return addressesData[randomIntFromInterval(0, 50)];
+  return addressesData[randomIntFromInterval(0, 49)];
 };
