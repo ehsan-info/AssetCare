@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 
-import { Col, TabContent, TabPane } from "reactstrap";
+import { Button, ButtonGroup, TabContent, TabPane } from "reactstrap";
 
 import { addressesData } from "__mocks/data/addresses-mocks";
 import { mockCustomers } from "__mocks/data/customers-mocks";
@@ -18,8 +19,8 @@ import {
   customerTypesDataAsSelectOptions,
 } from "common/category-utils";
 
-import { CreateCustomerPanel } from "./create-customer/CreateCustomer.panel";
-import { CustomerDetailsPanel } from "./customer-details/CustomerDetails.panel";
+// import { CreateCustomerPanel } from "./create-customer/CreateCustomer.panel";
+// import { CustomerDetailsPanel } from "./customer-details/CustomerDetails.panel";
 import { CUSTOMER_CREATE, CUSTOMER_DETAILS, CUSTOMER_SEARCH } from "./customer.routes.consts";
 import { SearchCustomersPanel } from "./search-customers/SearchCustomers.panel";
 
@@ -30,7 +31,7 @@ export const CustomerMainPanel = () => {
     setCustomers(mockCustomers());
   }, []);
 
-  const [currentCustomer] = useState({}); //setCurrentCustomer
+  // const [currentCustomer] = useState({}); //setCurrentCustomer
 
   // const names = namesDataAsSelectOptions(namesData);
   const addresses = addressesDataAsSelectOptions(addressesData);
@@ -39,14 +40,14 @@ export const CustomerMainPanel = () => {
   const websites = websitesDataAsSelectOptions(websitesData);
   const customer_types = customerTypesDataAsSelectOptions(customerTypesData);
 
-  const onCreateNew = newCustomer => {
-    console.log("newCustomer", newCustomer);
-  };
+  // const onCreateNew = newCustomer => {
+  //   console.log("newCustomer", newCustomer);
+  // };
 
-  const onSave = partialCustomer => {
-    console.log("partialCustomer", partialCustomer);
-    return partialCustomer;
-  };
+  // const onSave = partialCustomer => {
+  //   console.log("partialCustomer", partialCustomer);
+  //   return partialCustomer;
+  // };
 
   // const onViewCustomerDetails = id => {
   //   const foundCustomer = customers.find(employee => employee.id === id);
@@ -65,9 +66,25 @@ export const CustomerMainPanel = () => {
   // };
 
   return (
-    <Col>
+    <>
+      {/* <Row>
+				<Col md="3"> */}
+
       <TabContent activeTab={activePanel}>
-        <TabPane tabId={CUSTOMER_SEARCH}>
+        <TabPane className="" tabId={CUSTOMER_SEARCH}>
+          <ButtonGroup aria-label="Basic example" role="group">
+            <Button
+              className="my-4 ml-4 btn-lg w-100 border border-grey rounded"
+              color="#F7F7F9"
+              type="button"
+            >
+              Vendors
+            </Button>
+            <Button className="my-4 border border-grey rounded" color="#F7F7F9" type="button">
+              Consumers
+            </Button>
+          </ButtonGroup>
+
           <SearchCustomersPanel
             customers={customers}
             // names={names}
@@ -82,7 +99,7 @@ export const CustomerMainPanel = () => {
             // onViewDetails={onViewCustomerDetails}
           />
         </TabPane>
-        <TabPane tabId={CUSTOMER_CREATE}>
+        {/* <TabPane tabId={CUSTOMER_CREATE}>
           <CreateCustomerPanel onSaveNewCustomer={onCreateNew} /> navigateToPanel={setActivePanel}
         </TabPane>
         <TabPane tabId={CUSTOMER_DETAILS}>
@@ -91,8 +108,8 @@ export const CustomerMainPanel = () => {
             onSave={onSave}
             navigateToPanel={setActivePanel}
           />
-        </TabPane>
+        </TabPane> */}
       </TabContent>
-    </Col>
+    </>
   );
 };

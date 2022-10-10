@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { GoKebabVertical } from "react-icons/go";
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
 
-import { Button, Col, FormGroup, Row } from "reactstrap";
+import { Button, Col, FormGroup } from "reactstrap";
 
 import {
   TableUtilitiesWrapper,
@@ -77,41 +77,37 @@ export const ReactTable = ({ data, columns, selectElement }) => {
 
   return (
     <>
-      <Row>
-        <Col
-          md="8"
-          className="react-table-filter d-flex justify-content-between align-items-center"
-        >
-          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-          {selectElement && (
-            <TableUtilitiesWrapper
-              selectedFlatRows={selectedFlatRows}
-              toggleAllRowsSelected={() => toggleAllRowsSelected(false)}
-            >
-              {selectElement}
-            </TableUtilitiesWrapper>
-          )}
-        </Col>
-        <Col md="1"></Col>
-        <Col md="">
-          <FormGroup className="d-flex mt-2">
-            <IconContext.Provider md="" value={{ color: "676C6D", size: "25px", padding: "" }}>
-              <div>
-                <GoKebabVertical className="p-1 border border-grey rounded" role="button" />
-              </div>
-            </IconContext.Provider>
-            <Button
-              className="ml-2 btn btn-primary rounded-pill btn-sm h-50"
-              style={{ width: "6rem" }}
-              color="primary"
-              // onClick={onCreateNewCustomer}
-            >
-              + Customer
-            </Button>
-          </FormGroup>
-        </Col>
-      </Row>
-      <table {...getTableProps()} className="react-table">
+      {/* <Row> */}
+      {/* className="react-table-filter d-flex justify-content-between align-items-center" */}
+      <Col md="2" className="react-table-filter d-inline">
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        {selectElement && (
+          <TableUtilitiesWrapper
+            selectedFlatRows={selectedFlatRows}
+            toggleAllRowsSelected={() => toggleAllRowsSelected(false)}
+          >
+            {selectElement}
+          </TableUtilitiesWrapper>
+        )}
+      </Col>
+      {/* <Col md="1"></Col> */}
+      <Col md="" className="d-inline align-self-end">
+        <FormGroup className="mt-2 d-inline">
+          <IconContext.Provider md="" value={{ color: "676C6D", size: "20px", padding: "" }}>
+            <GoKebabVertical className="p-1 border border-grey rounded" role="button" />
+          </IconContext.Provider>
+          <Button
+            className="d-inline ml-2 btn btn-primary rounded-pill btn-sm h-50"
+            style={{ width: "6rem" }}
+            color="primary"
+            // onClick={onCreateNewCustomer}
+          >
+            + Customer
+          </Button>
+        </FormGroup>
+      </Col>
+      {/* </Row> */}
+      <table {...getTableProps()} className="react-table w-100">
         <thead className="react-table-thead">
           {
             // Loop over the header rows

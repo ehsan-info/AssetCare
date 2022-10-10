@@ -3,7 +3,7 @@
 // import { CgProfile } from "react-icons/cg";
 // import { TbBulb } from "react-icons/tb";
 
-import { Card, Row } from "reactstrap";
+// import { Card, Row } from "reactstrap";
 
 import { ReactTable } from "../../react-table";
 // import { CUSTOMER_CREATE } from "../customer.routes.consts";
@@ -33,10 +33,10 @@ export const SearchCustomersPanel = ({ customers }) => {
 
   return (
     <>
-      <Row>
+      {/* <Row>
         <div className="col">
-          <Card>
-            {/* <CardHeader>
+          <Card> */}
+      {/* <CardHeader>
               <Row>
                 <Col md="3">
                   <h3 className="col">Vendors & Customers</h3>
@@ -53,7 +53,7 @@ export const SearchCustomersPanel = ({ customers }) => {
                 </Col>
               </Row>
             </CardHeader> */}
-            {/* <Row>
+      {/* <Row>
               <Col md="3">
                 <ButtonGroup aria-label="Basic example" role="group">
                   <Button className="m-2 border border-grey rounded" color="#F7F7F9" type="button">
@@ -91,17 +91,17 @@ export const SearchCustomersPanel = ({ customers }) => {
             >
               + Customer
             </Button> */}
-            <ReactTable
-              className="mt-n100"
-              data={customers}
-              columns={customersTableColumns({
-                // onDetailsButtonClick: onViewCustomerDetails,
-                // onRemoveButtonClick: onDeleteCustomer,
-              })}
-            />
-          </Card>
+      <ReactTable
+        className="mt-n100"
+        data={customers}
+        columns={customersTableColumns({
+          // onDetailsButtonClick: onViewCustomerDetails,
+          // onRemoveButtonClick: onDeleteCustomer,
+        })}
+      />
+      {/* </Card>
         </div>
-      </Row>
+      </Row> */}
     </>
   );
 };
