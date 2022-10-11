@@ -30,3 +30,21 @@ export const departmentDataAsSelectOptions = data => {
 export const countriesDataAsSelectOptions = data => {
   return categoryAsSelectionOptions(data);
 };
+export const namesDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
+export const phonesDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
+export const addressesDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
+export const emailsDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
+export const websitesDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
+export const customerTypesDataAsSelectOptions = data => {
+  return categoryAsSelectionOptions(data);
+};
