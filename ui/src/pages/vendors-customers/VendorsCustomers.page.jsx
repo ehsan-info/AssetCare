@@ -9,7 +9,7 @@ import { Container, Row, Col, CardHeader, Card } from "reactstrap";
 import { BoxHeader } from "components/headers";
 
 // import { CUSTOMER_MAIN } from "./customers-details/customer.routes.consts";
-import { CustomerMainPanel } from "./customers/CustomerMain.panel";
+import { CustomersVendorsMainPanel } from "./CustomersVendorsMain.panel";
 
 export const VendorsCustomersPage = () => {
   // const [activeTab] = useState(CUSTOMER_MAIN);
@@ -38,7 +38,7 @@ export const VendorsCustomersPage = () => {
                 </Row>
               </CardHeader>
 
-              <CustomerMainPanel />
+              <CustomersVendorsMainPanel />
             </Card>
           </div>
         </Row>

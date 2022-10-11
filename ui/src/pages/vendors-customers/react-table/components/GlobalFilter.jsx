@@ -8,14 +8,14 @@ export const GlobalFilter = ({ filter, setFilter }) => {
     <>
       {customer_vendor === "customers" ? (
         <Input
-          className="react-table-search d-inline rounded-pill h-50 btn-sm w-100 fs-6 inputGroup-sizing-sm"
+          className="react-table-search m-0 d-inline rounded-pill"
           placeholder="🔍  Search Customers"
           value={filter || ""}
           onChange={e => setFilter(e.target.value)}
         />
       ) : (
         <Input
-          className="react-table-search d-inline rounded-pill h-50 btn-sm w-100 fs-6 inputGroup-sizing-sm"
+          className="react-table-search d-inline rounded-pill"
           placeholder="🔍  Search Vendors"
           value={filter || ""}
           onChange={e => setFilter(e.target.value)}

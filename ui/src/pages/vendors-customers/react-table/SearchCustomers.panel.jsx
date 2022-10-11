@@ -5,10 +5,10 @@
 
 // import { Card, Row } from "reactstrap";
 
-import { ReactTable } from "../../react-table";
+import { ReactTable } from "../react-table/ReactTable";
 // import { CUSTOMER_CREATE } from "../customer.routes.consts";
 
-import { customersTableColumns } from "./SearchCustomers.table";
+import { customersTableColumns } from "./customers.table";
 
 export const SearchCustomersPanel = ({ customers }) => {
   // export const SearchCustomersPanel = ({ customers, onDelete, onViewDetails }) => {

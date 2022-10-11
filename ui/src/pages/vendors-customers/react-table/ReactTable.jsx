@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { IconContext } from "react-icons";
 import { GoKebabVertical } from "react-icons/go";
+import { useSelector } from "react-redux";
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
 
 import { Button, Col, FormGroup } from "reactstrap";
@@ -16,6 +17,7 @@ import {
 export const ReactTable = ({ data, columns, selectElement }) => {
   const memoizedData = useMemo(() => data, [data]);
   const memoizedColumns = useMemo(() => columns, [columns]);
+  const customer_vendor = useSelector(state => state.customer_vendor);
 
   const {
     getTableProps,
@@ -76,8 +78,6 @@ export const ReactTable = ({ data, columns, selectElement }) => {
 
   return (
     <>
-      {/* <Row> */}
-      {/* className="react-table-filter d-flex justify-content-between align-items-center" */}
       <Col md="2" className="react-table-filter d-inline">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         {selectElement && (
@@ -89,19 +89,19 @@ export const ReactTable = ({ data, columns, selectElement }) => {
           </TableUtilitiesWrapper>
         )}
       </Col>
-      {/* <Col md="1"></Col> */}
-      <Col md="" className="d-inline align-self-end">
+      <Col className="d-inline w-100"></Col>
+      <Col className="d-inline">
         <FormGroup className="mt-2 d-inline">
           <IconContext.Provider md="" value={{ color: "676C6D", size: "20px", padding: "" }}>
             <GoKebabVertical className="p-1 border border-grey rounded" role="button" />
           </IconContext.Provider>
           <Button
-            className="d-inline ml-2 btn bg-gradient-info border-0 rounded-pill btn-sm h-50"
+            className="ml-2 btn bg-gradient-info border-0 rounded-pill btn-sm h-50"
             style={{ width: "6rem" }}
             color="primary"
             // onClick={onCreateNewCustomer}
           >
-            + Customer
+            {customer_vendor === "customers" ? "+ Customer " : "+ Vendors"}
           </Button>
         </FormGroup>
       </Col>
