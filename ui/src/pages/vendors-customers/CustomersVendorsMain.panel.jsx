@@ -1,22 +1,25 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button, ButtonGroup, TabContent, TabPane } from "reactstrap";
 
-import { addressesData } from "__mocks/data/addresses-mocks";
+// import { addressesData } from "__mocks/data/addresses-mocks";
 import { mockCustomers } from "__mocks/data/customers-mocks";
-import { customerTypesData } from "__mocks/data/customerTypes-mocks";
-import { emailsData } from "__mocks/data/emails-mocks";
-import { phonesData } from "__mocks/data/phones-mocks";
-import { websitesData } from "__mocks/data/websites-mocks";
-import {
-  addressesDataAsSelectOptions,
-  emailsDataAsSelectOptions,
-  phonesDataAsSelectOptions,
-  websitesDataAsSelectOptions,
-  customerTypesDataAsSelectOptions,
-} from "common/category-utils";
+
+import { CreateCustomerPanel } from "./create-customer/CreateCustomer.panel";
+// eslint-disable-next-line import/order
+import { CustomerDetailsPanel } from "./customer-details/CustomerDetails.panel";
+// import { customerTypesData } from "__mocks/data/customerTypes-mocks";
+// import { emailsData } from "__mocks/data/emails-mocks";
+// import { phonesData } from "__mocks/data/phones-mocks";
+// import { websitesData } from "__mocks/data/websites-mocks";
+// import {
+//   addressesDataAsSelectOptions,
+//   emailsDataAsSelectOptions,
+//   phonesDataAsSelectOptions,
+//   websitesDataAsSelectOptions,
+//   customerTypesDataAsSelectOptions,
+// } from "common/category-utils";
 
 // import { CreateCustomerPanel } from "./create-customer/CreateCustomer.panel";
 // import { CustomerDetailsPanel } from "./customer-details/CustomerDetails.panel";
@@ -33,32 +36,30 @@ export const CustomersVendorsMainPanel = () => {
     setCustomers(mockCustomers());
   }, []);
 
-  // const [currentCustomer] = useState({}); //setCurrentCustomer
+  const [currentCustomer] = useState({});
 
-  const addresses = addressesDataAsSelectOptions(addressesData);
-  const emails = emailsDataAsSelectOptions(emailsData);
-  const phones = phonesDataAsSelectOptions(phonesData);
-  const websites = websitesDataAsSelectOptions(websitesData);
-  const customer_types = customerTypesDataAsSelectOptions(customerTypesData);
+  // const addresses = addressesDataAsSelectOptions(addressesData);
+  // const emails = emailsDataAsSelectOptions(emailsData);
+  // const phones = phonesDataAsSelectOptions(phonesData);
+  // const websites = websitesDataAsSelectOptions(websitesData);
+  // const customer_types = customerTypesDataAsSelectOptions(customerTypesData);
 
-  // const onCreateNew = newCustomer => {
-  //   console.log("newCustomer", newCustomer);
-  // };
+  const onCreateNew = newCustomer => {
+    console.log("newCustomer", newCustomer);
+  };
 
-  // const onSave = partialCustomer => {
-  //   console.log("partialCustomer", partialCustomer);
-  //   return partialCustomer;
-  // };
-
+  const onSave = partialCustomer => {
+    console.log("partialCustomer", partialCustomer);
+    return partialCustomer;
+  };
   // const onViewCustomerDetails = id => {
   //   const foundCustomer = customers.find(employee => employee.id === id);
   //   setCurrentCustomer(foundCustomer);
   //   setActivePanel(CUSTOMER_DETAILS);
   // };
-
-  const onSearchCustomers = async customerSearchRequest => {
-    setCustomers(mockCustomers());
-  };
+  // const onSearchCustomers = async customerSearchRequest => {
+  //   setCustomers(mockCustomers());
+  // };
 
   // const onDelete = id => {
   //   console.log(id);
@@ -71,7 +72,6 @@ export const CustomersVendorsMainPanel = () => {
       event.classList.add("bg-gradient-info text-white");
     }
   };
-
   return (
     <TabContent activeTab={activePanel}>
       <TabPane className="" tabId={CUSTOMER_SEARCH}>
@@ -102,7 +102,6 @@ export const CustomersVendorsMainPanel = () => {
             Consumers
           </Button>
         </ButtonGroup>
-
         {/* <SearchCustomersPanel
           customers={customers}
           addresses={addresses}
@@ -115,25 +114,30 @@ export const CustomersVendorsMainPanel = () => {
           onDelete={onDelete}
           onViewDetails={onViewCustomerDetails}
         /> */}
-        <ReactTable
-          className="mt-n100"
-          data={customers}
-          columns={customersTableColumns({
-            // onDetailsButtonClick: onViewCustomerDetails,
-            // onRemoveButtonClick: onDeleteCustomer,
-          })}
+
+        {customer_vendor === "customers" ? (
+          <ReactTable
+            className="mt-n100"
+            data={customers}
+            columns={customersTableColumns({
+              // onDetailsButtonClick: onViewCustomerDetails,
+              // onRemoveButtonClick: onDeleteCustomer,
+            })}
+          />
+        ) : (
+          <h3 className="d-flex justify-content-center text-danger">no data for vendors yet..</h3>
+        )}
+      </TabPane>
+      <TabPane tabId={CUSTOMER_CREATE}>
+        <CreateCustomerPanel onSaveNewCustomer={onCreateNew} /> navigateToPanel={setActivePanel}
+      </TabPane>
+      <TabPane tabId={CUSTOMER_DETAILS}>
+        <CustomerDetailsPanel
+          customer={currentCustomer}
+          onSave={onSave}
+          navigateToPanel={setActivePanel}
         />
       </TabPane>
-      {/* <TabPane tabId={CUSTOMER_CREATE}>
-          <CreateCustomerPanel onSaveNewCustomer={onCreateNew} /> navigateToPanel={setActivePanel}
-        </TabPane>
-        <TabPane tabId={CUSTOMER_DETAILS}>
-          <CustomerDetailsPanel
-            customer={currentCustomer}
-            onSave={onSave}
-            navigateToPanel={setActivePanel}
-          />
-        </TabPane> */}
     </TabContent>
   );
 };

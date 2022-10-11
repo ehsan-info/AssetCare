@@ -8,23 +8,23 @@ export const customersTableColumns = ({ onDetailsButtonClick, onRemoveButtonClic
     },
     {
       accessor: "name",
-      Header: "Customer Name",
+      Header: "CUSTOMER NAME",
     },
     {
       accessor: "address.address",
-      Header: "Address",
+      Header: "ADDRESS",
     },
     {
       accessor: "phone.phone",
-      Header: "Phone Number",
+      Header: "PHONE NUMBER",
     },
     {
       accessor: "customer_type.customer_type",
-      Header: "Customer Type",
+      Header: "CUSTOMER TYPE",
     },
     {
       accessor: "website.website",
-      Header: "Website",
+      Header: "WEBSITE",
     },
     TwoMouseEventActionButtons({ onDetailsButtonClick, onRemoveButtonClick }),
   ];

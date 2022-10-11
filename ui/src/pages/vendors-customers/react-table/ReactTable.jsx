@@ -2,9 +2,12 @@ import { useMemo } from "react";
 import { IconContext } from "react-icons";
 import { GoKebabVertical } from "react-icons/go";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
 
 import { Button, Col, FormGroup } from "reactstrap";
+
+// import { CUSTOMER_CREATE } from "../customer.routes.consts";
 
 import {
   TableUtilitiesWrapper,
@@ -18,6 +21,12 @@ export const ReactTable = ({ data, columns, selectElement }) => {
   const memoizedData = useMemo(() => data, [data]);
   const memoizedColumns = useMemo(() => columns, [columns]);
   const customer_vendor = useSelector(state => state.customer_vendor);
+  const navigate = useNavigate();
+
+  const onCreateNewCustomer = async e => {
+    e.preventDefault();
+    navigate("/create/customer");
+  };
 
   const {
     getTableProps,
@@ -90,7 +99,7 @@ export const ReactTable = ({ data, columns, selectElement }) => {
         )}
       </Col>
       <Col className="d-inline w-100"></Col>
-      <Col className="d-inline">
+      <Col className="d-inline ml-8">
         <FormGroup className="mt-2 d-inline">
           <IconContext.Provider md="" value={{ color: "676C6D", size: "20px", padding: "" }}>
             <GoKebabVertical className="p-1 border border-grey rounded" role="button" />
@@ -99,7 +108,7 @@ export const ReactTable = ({ data, columns, selectElement }) => {
             className="ml-2 btn bg-gradient-info border-0 rounded-pill btn-sm h-50"
             style={{ width: "6rem" }}
             color="primary"
-            // onClick={onCreateNewCustomer}
+            onClick={onCreateNewCustomer}
           >
             {customer_vendor === "customers" ? "+ Customer " : "+ Vendors"}
           </Button>
@@ -121,7 +130,7 @@ export const ReactTable = ({ data, columns, selectElement }) => {
                       <th
                         {...column.getHeaderProps(column.getSortByToggleProps())}
                         key={i}
-                        className="react-table-th h-50 text-capitalize"
+                        className="react-table-th h-50"
                         style={{ background: "#F0F1F7", color: "#595C5D" }}
                       >
                         {
@@ -161,7 +170,7 @@ export const ReactTable = ({ data, columns, selectElement }) => {
                         <td
                           data-label={cell.column.Header}
                           {...cell.getCellProps()}
-                          className="react-table-td"
+                          className="react-table-td py-0"
                         >
                           {
                             // Render the cell contents
