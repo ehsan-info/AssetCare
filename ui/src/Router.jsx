@@ -4,7 +4,6 @@ import { routes } from "routes";
 
 import { LOGIN } from "pages/auth";
 import { HOME } from "pages/home";
-import { CreateCustomerPanel } from "pages/vendors-customers/create-customer/CreateCustomer.panel";
 
 import { useAuth } from "context";
 import { getRoutes, AdminLayout, AuthLayout } from "layouts";
@@ -29,7 +28,6 @@ export const Router = () => {
           <Navigate to={userRole !== Role.Anonymous ? `admin${HOME}` : `auth${LOGIN}`} replace />
         }
       />
-      <Route path="/create/customer" element={<CreateCustomerPanel />} />
     </Routes>
   );
 };

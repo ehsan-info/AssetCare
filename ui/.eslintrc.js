@@ -113,7 +113,7 @@ module.exports = {
     ],
     // uses .prettierrc.js file config
     // https://github.com/prettier/eslint-plugin-prettier#options
-    "prettier/prettier": ["error", { usePrettierrc: true }],
+    "prettier/prettier": ["error", {}, { usePrettierrc: true }],
   },
   // overrides: [
   //   {

@@ -1,11 +1,8 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import { AuthProvider } from "context";
-
-import { store } from "../src/redux/store";
 
 import { Router } from "./Router";
 
@@ -22,11 +19,9 @@ import "components/widgets/react-table/styles/reactTable.css";
 ReactDOM.render(
   <BrowserRouter>
     <StrictMode>
-      <Provider store={store}>
-        <AuthProvider>
-          <Router />
-        </AuthProvider>
-      </Provider>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
     </StrictMode>
   </BrowserRouter>,
   document.getElementById("root")
