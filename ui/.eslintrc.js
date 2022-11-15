@@ -7,14 +7,15 @@ module.exports = {
     jest: true,
     node: true,
   },
-  parser: "@babel/eslint-parser",
   parserOptions: {
+    parser: "@babel/eslint-parser",
+    requireConfigFile: false,
+    ecmaVersion: 2018,
+    sourceType: "module",
     ecmaFeatures: {
       jsx: true,
       experimentalObjectRestSpread: true,
     },
-    ecmaVersion: 13,
-    sourceType: "module",
   },
   settings: {
     react: { version: "detect" },
