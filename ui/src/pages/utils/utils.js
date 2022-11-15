@@ -144,5 +144,5 @@ export const selectGroupMembers = groupId => {
 
   return Object.keys(employees)
     .map(key => employees[parseInt(key)])
-    .filter(employee => group?.members.includes(employee.id));
+    .filter(employee => group.members.includes(employee.id));
 };

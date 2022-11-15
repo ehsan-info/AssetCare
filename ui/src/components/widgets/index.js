@@ -4,3 +4,4 @@ export * from "./select-field";
 export * from "./date-field";
 export * from "./file-input";
 export * from "./display-files";
+export * from "./dragdrop";

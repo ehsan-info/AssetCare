@@ -11,7 +11,11 @@ export const useLocalStateAlerts = () => {
 
   useEffect(() => {
     if (isSuccess && saveSent) {
-      setAlert(() => <SuccessAlert setAlert={setAlert}>{successMessage}</SuccessAlert>);
+      setAlert(() => (
+        <SuccessAlert setAlert={setAlert} setIsSuccess={setIsSuccess} setSaveSent={setSaveSent}>
+          {successMessage}
+        </SuccessAlert>
+      ));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
