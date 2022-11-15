@@ -1,0 +1,93 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+
+import { Button, Card, CardHeader, Col, Container, Row } from "reactstrap";
+
+import { BoxHeader } from "components/headers";
+import { ReactTable } from "components/widgets";
+
+import { groupsData, peopleData } from "data";
+
+import { PeopleTeamSwitchButton, TeamsTableColumns } from "../components";
+import { PEOPLE_DETAILS } from "../peopleTeams.routes.const";
+
+import { PeopleTableColumns } from "./People.table";
+
+export const PeopleAndTeamsPage = () => {
+  const navigate = useNavigate();
+
+  const [people, setPeople] = useState(peopleData);
+  const [teams, setTeams] = useState(groupsData);
+  const [category, setCategory] = useState("People");
+
+  const onViewPeopleDetails = e => {
+    e.preventDefault();
+    const { id } = e.currentTarget;
+    navigate(`/admin${PEOPLE_DETAILS}/${id}`);
+  };
+
+  const onDeletePerson = e => {
+    e.preventDefault();
+    const { id } = e.currentTarget;
+    console.log("delete person", id);
+    setPeople(people.filter(el => el.id !== parseInt(id)));
+  };
+
+  const onViewTeamsDetails = e => {
+    e.preventDefault();
+  };
+
+  const onDeleteTeam = e => {
+    e.preventDefault();
+    const { id } = e.currentTarget;
+    console.log("delete team", id);
+    setTeams(teams.filter(el => el.id !== parseInt(id)));
+  };
+  return (
+    <>
+      <BoxHeader />
+      <Container className="mt--6" fluid>
+        <Row>
+          <div className="col">
+            <Card>
+              <CardHeader>
+                <Row className="justify-content-between">
+                  <Col>
+                    <Row className="align-items-center">
+                      <Col xl="auto">
+                        <h3 className="mb-0">People and Teams</h3>
+                      </Col>
+                      <Col xl="auto">
+                        <PeopleTeamSwitchButton category={category} handleCategory={setCategory} />
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col xl="auto">
+                    <Button color="primary">+ {category}</Button>
+                  </Col>
+                </Row>
+              </CardHeader>
+              {category === "People" ? (
+                <ReactTable
+                  data={people}
+                  columns={PeopleTableColumns({
+                    onDetailsButtonClick: onViewPeopleDetails,
+                    onRemoveButtonClick: onDeletePerson,
+                  })}
+                />
+              ) : (
+                <ReactTable
+                  data={teams}
+                  columns={TeamsTableColumns({
+                    onDetailsButtonClick: onViewTeamsDetails,
+                    onRemoveButtonClick: onDeleteTeam,
+                  })}
+                />
+              )}
+            </Card>
+          </div>
+        </Row>
+      </Container>
+    </>
+  );
+};

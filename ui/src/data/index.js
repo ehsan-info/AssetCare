@@ -9,3 +9,5 @@ export * from "./mock-data-pdf-base64";
 export * from "./locations";
 export * from "./meters";
 export * from "./purchase-orders";
+export * from "./people";
+export * from "./groups";
