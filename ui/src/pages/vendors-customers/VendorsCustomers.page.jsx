@@ -6,7 +6,7 @@ import { Card, CardBody, CardHeader, Container, Row, Button, Col } from "reactst
 import { BoxHeader } from "components/headers";
 
 import { SearchVendorsCustomersPage } from "./search-vendors-customers";
-import { CREATE_VENDOR_PAGE, CREATE_CUSTOMER_PAGE } from "./vendorsCustomers.routes.const";
+import { CREATE_CUSTOMER_PAGE, CREATE_VENDOR_PAGE } from "./vendorsCustomers.routes.const";
 
 export const VendorsCustomersPage = () => {
   const navigate = useNavigate();

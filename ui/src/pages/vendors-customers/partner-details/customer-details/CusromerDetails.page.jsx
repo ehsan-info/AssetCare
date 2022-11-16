@@ -5,12 +5,11 @@ import { Container } from "reactstrap";
 
 import { BoxHeader } from "components/headers";
 
+import { CustomerPanel } from "pages/vendors-customers/panels";
 import { VENDORS_CUSTOMERS_PAGE } from "pages/vendors-customers/vendorsCustomers.routes.const";
 
 import { customersData } from "data/customers";
 import { useLocalStateAlerts } from "hooks";
-
-import { CustomerPanel } from "../../panels/customer-panel";
 
 export const CustomerDetailsPage = () => {
   const { id } = useParams();

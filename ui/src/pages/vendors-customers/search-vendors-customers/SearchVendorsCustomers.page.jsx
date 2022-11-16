@@ -5,13 +5,10 @@ import { Spinner } from "reactstrap";
 
 import { ReactTable } from "components/widgets";
 
-import {
-  CUSTOMER_DETAILS,
-  VENDOR_DETAILS,
-} from "pages/vendors-customers/vendorsCustomers.routes.const";
-
 import { customersData } from "data/customers";
 import { vendorsData } from "data/vendors";
+
+import { CUSTOMER_DETAILS, VENDOR_DETAILS } from "../vendorsCustomers.routes.const";
 
 import { customersTableColumns } from "./SearchCustomers.table";
 import { vendorsTableColumns } from "./SearchVendors.table";
