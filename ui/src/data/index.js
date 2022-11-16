@@ -13,3 +13,5 @@ export * from "./people";
 export * from "./groups";
 export * from "./customers";
 export * from "./vendors";
+export * from "./inventories";
+export * from "./assets";
