@@ -1,3 +1,5 @@
 export const VENDORS_CUSTOMERS_PAGE = "/vendors-customers";
-export const VENDORS_DETAILS = "/vendors-customers/vendors-details";
-export const CUSTOMERS_DETAILS = "/vendors-customers/customers-details";
+export const CREATE_CUSTOMER_PAGE = "/create/create-customer";
+export const CREATE_VENDOR_PAGE = "/create/create-vendor";
+export const CUSTOMER_DETAILS = "/details/customer-details";
+export const VENDOR_DETAILS = "/details/vendor-details";

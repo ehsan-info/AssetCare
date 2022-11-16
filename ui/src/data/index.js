@@ -11,3 +11,5 @@ export * from "./meters";
 export * from "./purchase-orders";
 export * from "./people";
 export * from "./groups";
+export * from "./customers";
+export * from "./vendors";
