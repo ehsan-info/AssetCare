@@ -110,7 +110,7 @@ export const RequestPortalPage = () => {
                           <div className="text-muted font-italic mt-4">
                             Anyone with the URL above can create work order requests that go
                             directly to their admins for approval. They do not have to log in to
-                            their UpKeep account.
+                            their AssetCare account.
                           </div>
                         </Col>
                       </Row>
@@ -176,8 +176,8 @@ export const RequestPortalPage = () => {
                         <Col md="12" className="mb-4">
                           <div className="font-weight-bold">Create via Email</div>
                           <div className="text-muted">
-                            Submit work requests by sending an email to your companys unique UpKeep
-                            email address.
+                            Submit work requests by sending an email to your companys unique
+                            AssetCare email address.
                           </div>
                         </Col>
                         <Col md="12">
@@ -211,9 +211,9 @@ export const RequestPortalPage = () => {
                         </Col>
                         <Col md="12">
                           <div className="text-muted font-italic mt-4">
-                            UpKeep will use the subject line as the work order title, and the body
-                            of the email as the request description. Requests are updated every 15
-                            minutes.
+                            AssetCare will use the subject line as the work order title, and the
+                            body of the email as the request description. Requests are updated every
+                            15 minutes.
                           </div>
                           <div className="text-muted font-italic mt-4">
                             <span className="font-weight-bold"> Note:</span> The email is CASE
@@ -305,7 +305,7 @@ export const RequestPortalPage = () => {
                           <div className="text-muted font-italic mt-4">
                             Anyone with the URL above can create purchase order requests that go
                             directly to their admins for approval. They do not have to log in to
-                            their UpKeep account.
+                            their AssetCare account.
                           </div>
                         </Col>
                       </Row>

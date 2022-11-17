@@ -44,7 +44,7 @@ export const AddAsset = props => {
                 <Label check>
                   <p>Track Check-in/Check-out</p>
                   <Input type="checkbox" />
-                  Use Upkeep to track and manage check-ins and check-outs for this asset.
+                  Use AssetCare to track and manage check-ins and check-outs for this asset.
                 </Label>
               </FormGroup>
               <Row className="justify-content-center">
