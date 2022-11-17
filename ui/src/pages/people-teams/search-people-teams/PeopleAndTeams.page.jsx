@@ -10,7 +10,7 @@ import { groupsData, peopleData } from "data";
 import { useLocalStateAlerts } from "hooks";
 
 import { PeopleTeamSwitchButton, TeamsTableColumns } from "../components";
-import { PEOPLE_DETAILS } from "../peopleTeams.routes.const";
+import { CREATE_PERSON_PAGE, CREATE_TEAM_PAGE, PEOPLE_DETAILS } from "../peopleTeams.routes.const";
 
 import { PeopleTableColumns } from "./People.table";
 
@@ -72,7 +72,16 @@ export const PeopleAndTeamsPage = () => {
                     </Row>
                   </Col>
                   <Col xl="auto">
-                    <Button color="primary">+ {category}</Button>
+                    <Button
+                      color="primary"
+                      onClick={
+                        category == "People"
+                          ? () => navigate(`/admin${CREATE_PERSON_PAGE}`)
+                          : () => navigate(`/admin${CREATE_TEAM_PAGE}`)
+                      }
+                    >
+                      + {category}
+                    </Button>
                   </Col>
                 </Row>
               </CardHeader>
