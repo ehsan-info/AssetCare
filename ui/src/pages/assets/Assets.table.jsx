@@ -2,7 +2,7 @@ import { TwoMouseEventActionButtons } from "components/widgets";
 export const assetsTableColumns = ({ onDetailsButtonClick, onRemoveButtonClick }) => {
   return [
     {
-      accessor: "Name",
+      accessor: "name",
       Header: "Name",
     },
     {
@@ -30,24 +30,8 @@ export const assetsTableColumns = ({ onDetailsButtonClick, onRemoveButtonClick }
       Header: "Category",
     },
     {
-      accessor: "asset status",
+      accessor: "assetStatus",
       Header: "Asset Status",
-    },
-    {
-      accessor: "x",
-      Header: "X",
-    },
-    {
-      accessor: "y",
-      Header: "Y",
-    },
-    {
-      accessor: "z",
-      Header: "Z",
-    },
-    {
-      accessor: "m",
-      Header: "M",
     },
     TwoMouseEventActionButtons({ onDetailsButtonClick, onRemoveButtonClick }),
   ];

@@ -7,6 +7,7 @@ import { BoxHeader } from "components/headers";
 import { ReactTable } from "components/widgets";
 
 import { locationsData } from "data/locations";
+import { useLocalStateAlerts } from "hooks";
 
 import { LocationHeader } from "../components/LocationHeader";
 import { LOCATION_DETAILS } from "../locations.routes.const";
@@ -14,9 +15,11 @@ import { LOCATION_DETAILS } from "../locations.routes.const";
 import { locationsTableColumns } from "./Locations.table";
 
 export const LocationsPage = () => {
+  const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
+
   const navigate = useNavigate();
 
-  const [locations] = useState(locationsData);
+  const [locations, setLocations] = useState(locationsData);
 
   const onViewLocationsDetails = e => {
     e.preventDefault();
@@ -27,11 +30,16 @@ export const LocationsPage = () => {
   const onDeleteLocation = e => {
     e.preventDefault();
     const { id } = e.currentTarget;
+    setSuccessMessage("Location deleted");
+    setIsSuccess(true);
+    setSaveSent(true);
+    setLocations(locations.filter(e => e.id !== parseInt(id)));
     console.log("delete location", id);
   };
 
   return (
     <>
+      {alert}
       <BoxHeader />
       <Container className="mt--6" fluid>
         <Row>

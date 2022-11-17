@@ -8,6 +8,7 @@ import { BoxHeader } from "components/headers";
 import { SearchInputField, ReactTable } from "components/widgets";
 
 import { inventoriesData } from "data";
+import { useLocalStateAlerts } from "hooks";
 
 import {
   CREATE_NEW_INVENTORY,
@@ -19,9 +20,11 @@ import {
 export const PartsInventoryPage = () => {
   const [toggleTableView, setToggleTableView] = useState(true);
   const [toggleCardView, setToggleCardView] = useState(false);
-  const [inventories] = useState(inventoriesData);
+  const [inventories, setInventories] = useState(inventoriesData);
   const [searchPartsByName, setSearchPartsByName] = useState("");
   const navigate = useNavigate();
+
+  const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
 
   const setTableView = () => {
     setToggleTableView(!toggleTableView);
@@ -43,10 +46,15 @@ export const PartsInventoryPage = () => {
     e.preventDefault();
     const { id } = e.currentTarget;
     console.log("delete inventory", id);
+    setSuccessMessage("Inventory deleted");
+    setIsSuccess(true);
+    setSaveSent(true);
+    setInventories(inventories.filter(e => e.id !== parseInt(id)));
   };
 
   return (
     <>
+      {alert}
       <BoxHeader />
       <Container className="mt--6" fluid>
         <Row>

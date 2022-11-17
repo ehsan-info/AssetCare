@@ -7,13 +7,15 @@ import { BoxHeader } from "components/headers";
 import { ReactTable } from "components/widgets";
 
 import { purchaseOrdersData } from "data";
+import { useLocalStateAlerts } from "hooks";
 
 import { PURCHASE_ORDERS_DETAILS, PurchaseOrdersTableColumns } from ".";
 
 export const PurchaseOrdersPage = () => {
+  const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
   const navigate = useNavigate();
 
-  const [purchaseOrders] = useState(purchaseOrdersData);
+  const [purchaseOrders, setPurchaseOrders] = useState(purchaseOrdersData);
 
   const onViewPurchaseOrdersDetails = e => {
     e.preventDefault();
@@ -25,10 +27,15 @@ export const PurchaseOrdersPage = () => {
     e.preventDefault();
     const { id } = e.currentTarget;
     console.log("delete purchase orders", id);
+    setSuccessMessage("Inventory deleted");
+    setIsSuccess(true);
+    setSaveSent(true);
+    setPurchaseOrders(purchaseOrders.filter(e => e.id !== parseInt(id)));
   };
 
   return (
     <>
+      {alert}
       <BoxHeader />
       <Container className="mt--6" fluid>
         <Row>

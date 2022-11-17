@@ -7,6 +7,7 @@ import { BoxHeader } from "components/headers";
 import { ReactTable } from "components/widgets";
 
 import { groupsData, peopleData } from "data";
+import { useLocalStateAlerts } from "hooks";
 
 import { PeopleTeamSwitchButton, TeamsTableColumns } from "../components";
 import { PEOPLE_DETAILS } from "../peopleTeams.routes.const";
@@ -14,6 +15,7 @@ import { PEOPLE_DETAILS } from "../peopleTeams.routes.const";
 import { PeopleTableColumns } from "./People.table";
 
 export const PeopleAndTeamsPage = () => {
+  const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
   const navigate = useNavigate();
 
   const [people, setPeople] = useState(peopleData);
@@ -30,6 +32,9 @@ export const PeopleAndTeamsPage = () => {
     e.preventDefault();
     const { id } = e.currentTarget;
     console.log("delete person", id);
+    setSuccessMessage("Person deleted");
+    setIsSuccess(true);
+    setSaveSent(true);
     setPeople(people.filter(el => el.id !== parseInt(id)));
   };
 
@@ -41,10 +46,14 @@ export const PeopleAndTeamsPage = () => {
     e.preventDefault();
     const { id } = e.currentTarget;
     console.log("delete team", id);
+    setSuccessMessage("Team deleted");
+    setIsSuccess(true);
+    setSaveSent(true);
     setTeams(teams.filter(el => el.id !== parseInt(id)));
   };
   return (
     <>
+      {alert}
       <BoxHeader />
       <Container className="mt--6" fluid>
         <Row>
