@@ -1,6 +1,8 @@
 import { allAuthRoles } from "../utils";
 
-import { FILES_PAGE, FilesPage } from ".";
+import { CreateFilePage } from "./create-file/CreateFile.page";
+
+import { FILES_PAGE, CREATE_FILE_PAGE, FilesPage, FILE_DETAILS, FileDetailsPage } from ".";
 
 export const filesPage = [
   {
@@ -13,5 +15,25 @@ export const filesPage = [
     key: "Files",
     allowedRoles: [...allAuthRoles],
     sideBarGroup: 4,
+  },
+  {
+    collapse: false,
+    global: true,
+    path: `${CREATE_FILE_PAGE}`,
+    component: <CreateFilePage />,
+    layout: "/admin",
+    name: `${CREATE_FILE_PAGE}`,
+    key: `Files/${CREATE_FILE_PAGE}`,
+    allowedRoles: [...allAuthRoles],
+  },
+  {
+    collapse: false,
+    global: true,
+    name: `${FILE_DETAILS}/:id`,
+    path: `${FILE_DETAILS}/:id`,
+    component: <FileDetailsPage />,
+    layout: "/admin",
+    key: `Files/${FILE_DETAILS}/:id`,
+    allowedRoles: [...allAuthRoles],
   },
 ];
