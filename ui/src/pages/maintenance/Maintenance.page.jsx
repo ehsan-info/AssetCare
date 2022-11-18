@@ -1,8 +1,14 @@
-import { Card, CardBody, CardHeader, Container, Row } from "reactstrap";
+import { useNavigate } from "react-router";
+
+import { Button, Card, CardHeader, Container, Row } from "reactstrap";
 
 import { BoxHeader } from "components/headers";
 
+import { CREATE_MAINTENANCE_PAGE } from "./maintenance.routes.const";
+import { SearchMaintenancePage } from "./search-maintenance";
+
 export const MaintenancePage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <BoxHeader />
@@ -10,10 +16,17 @@ export const MaintenancePage = () => {
         <Row>
           <div className="col">
             <Card>
-              <CardHeader>
+              <CardHeader className="d-flex justify-content-between">
                 <h3 className="mb-0">Maintenance Page</h3>
+                <Button
+                  color="primary"
+                  onClick={() => navigate(`/admin${CREATE_MAINTENANCE_PAGE}`)}
+                >
+                  Create Trigger
+                </Button>
               </CardHeader>
-              <CardBody />
+
+              <SearchMaintenancePage />
             </Card>
           </div>
         </Row>

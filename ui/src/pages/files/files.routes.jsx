@@ -1,8 +1,9 @@
 import { allAuthRoles } from "../utils";
 
 import { CreateFilePage } from "./create-file/CreateFile.page";
+import { FileDetailsPage } from "./file-details";
 
-import { FILES_PAGE, CREATE_FILE_PAGE, FilesPage, FILE_DETAILS, FileDetailsPage } from ".";
+import { FILES_PAGE, CREATE_FILE_PAGE, FilesPage, FILE_DETAILS } from ".";
 
 export const filesPage = [
   {
