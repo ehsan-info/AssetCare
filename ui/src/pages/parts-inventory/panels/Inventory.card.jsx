@@ -8,8 +8,9 @@ export const InventoryCard = ({ data, onViewDetailsClick }) => {
       <CardBody className="d-block text-center">
         {data.map(inventory => (
           <Row className="card-wrapper" key={inventory.id}>
+            <Col md="3" />
             <Col md="6" class="mx-auto">
-              <Card>
+              <Card className=" d-flex justify-content-center">
                 <CardImg alt="..." src={noImage} top />
                 <CardBody style={{ height: "13em" }}>
                   <CardTitle className="mb-3 text-center" tag="h3">

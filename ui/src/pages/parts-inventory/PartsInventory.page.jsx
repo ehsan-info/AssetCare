@@ -66,7 +66,7 @@ export const PartsInventoryPage = () => {
               <CardBody>
                 <Row>
                   <Col md="5">
-                    <div className="d-flex justify-content-around">
+                    <div className="d-flex justify-content-center">
                       <TableViewButton
                         setTableView={setTableView}
                         toggleTableView={toggleTableView}
