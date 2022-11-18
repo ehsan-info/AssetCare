@@ -27,7 +27,7 @@ export const CreateMaintenancePage = () => {
   const [endDate, setEndDate] = useState(null);
 
   return (
-    <div className="create-vendor">
+    <div className="create-maintenance">
       <BoxHeader />
       <Container className="mt--6">
         <Row>

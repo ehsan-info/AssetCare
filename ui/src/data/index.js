@@ -16,3 +16,4 @@ export * from "./vendors";
 export * from "./inventories";
 export * from "./assets";
 export * from "./maintenance";
+export * from "./requests";
