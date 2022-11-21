@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader, Container, Row } from "reactstrap";
+import { Card, CardHeader, Container, Row } from "reactstrap";
 
 import { BoxHeader } from "components/headers";
 
@@ -20,9 +20,7 @@ export const MetersPage = () => {
                   <i className="far fa-lightbulb float-right pr-2" aria-hidden="true"></i>
                 </div>
               </CardHeader>
-              <CardBody className="p-0 overflow-hidden">
-                <MetersPanel />
-              </CardBody>
+              <MetersPanel />
             </Card>
           </div>
         </Row>
