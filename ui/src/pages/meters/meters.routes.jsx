@@ -1,6 +1,6 @@
 import { allAuthRoles } from "../utils";
 
-import { METERS_PAGE, MetersPage } from ".";
+import { METERS_PAGE, MetersPage, METER_DETAILS, MeterDetailsPage } from ".";
 
 export const metersPage = [
   {
@@ -13,5 +13,15 @@ export const metersPage = [
     key: "Meters",
     allowedRoles: [...allAuthRoles],
     sideBarGroup: 2,
+  },
+  {
+    collapse: false,
+    global: true,
+    path: `${METER_DETAILS}/:id`,
+    component: <MeterDetailsPage />,
+    layout: "/admin",
+    name: `${METER_DETAILS}/:id`,
+    key: `PeopleTeams/${METER_DETAILS}/:id`,
+    allowedRoles: [...allAuthRoles],
   },
 ];
