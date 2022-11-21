@@ -108,10 +108,12 @@ export const PartsInventoryPage = () => {
                 />
               )}
               {toggleCardView && (
-                <Row className="justify-content-center">
-                  <Col className="card-wrapper" lg="12">
-                    <InventoryCard onViewDetailsClick={onViewInventoryDetails} data={inventories} />
-                  </Col>
+                <Row className="p-4">
+                  {inventories.map((inventory, index) => (
+                    <Col key={index} sm="4">
+                      <InventoryCard data={inventory} onViewDetailsClick={onViewInventoryDetails} />
+                    </Col>
+                  ))}
                 </Row>
               )}
             </Card>

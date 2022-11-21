@@ -14,28 +14,23 @@ export const CardViewDetails = props => {
   };
   return (
     <>
-      <Card>
-        <CardBody className="d-block text-center">
-          <Row className="card-wrapper">
-            <Col md="3" />
-            <Col md="6" class="mx-auto">
-              <Card className=" d-flex justify-content-center">
-                <CardImg alt="..." src={image} top />
-                <CardBody style={{ height: "13em" }}>
-                  <CardTitle className="mb-3 text-center" tag="h3">
-                    {name}
-                  </CardTitle>
-                  <CardText className="mb-4">
-                    <Row className="justify-content-center">
-                      <Col lg="12">{model}</Col>
-                    </Row>
-                  </CardText>
-                  <Button id="2" color="primary" onClick={onViewAssetDetails}>
-                    Read More
-                  </Button>
-                </CardBody>
-              </Card>
-            </Col>
+      <Card className=" d-flex justify-content-center">
+        <CardImg alt="..." src={image} top />
+        <CardBody style={{ height: "13em" }}>
+          <CardTitle className="mb-3 text-center" tag="h3">
+            {name}
+          </CardTitle>
+          <CardText className="mb-4">
+            <Row>
+              <Col lg="12" className="d-flex justify-content-center">
+                {model}
+              </Col>
+            </Row>
+          </CardText>
+          <Row className="d-flex justify-content-center">
+            <Button id="2" color="primary" onClick={onViewAssetDetails}>
+              Read More
+            </Button>
           </Row>
         </CardBody>
       </Card>
