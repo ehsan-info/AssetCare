@@ -1,46 +1,42 @@
-import { CardImg, CardBody, CardTitle, CardText, Row, Col, Card } from "reactstrap";
+import { useNavigate } from "react-router";
+
+import { CardImg, CardBody, CardTitle, CardText, Row, Col, Card, Button } from "reactstrap";
+
+import { ASSET_DETAILS } from "../assets.routes.const";
 export const CardViewDetails = props => {
-  const detailTitle = "text-gray col-3";
+  const navigate = useNavigate();
+  const { image, model, name } = props;
+
+  const onViewAssetDetails = e => {
+    e.preventDefault();
+    const { id } = e.currentTarget;
+    navigate(`/admin${ASSET_DETAILS}/${id}`);
+  };
   return (
     <>
       <Card>
-        <CardImg top width="100%" src={props.CardImg} alt="Card image cap" />
-        <CardBody>
-          <CardTitle className="font-weight-bold">Asset</CardTitle>
-          <CardText>
-            <Row>
-              <Col className={detailTitle}>ID</Col>
-              <Col>{props.id}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Name</Col>
-              <Col>{props.name}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Location</Col>
-              <Col>{props.location}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Area</Col>
-              <Col>{props.area}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Model</Col>
-              <Col>{props.model}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Barcode</Col>
-              <Col>{props.barcode}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Category</Col>
-              <Col>{props.category}</Col>
-            </Row>
-            <Row>
-              <Col className={detailTitle}>Assets Status</Col>
-              <Col>{props.assetstatus}</Col>
-            </Row>
-          </CardText>
+        <CardBody className="d-block text-center">
+          <Row className="card-wrapper">
+            <Col md="3" />
+            <Col md="6" class="mx-auto">
+              <Card className=" d-flex justify-content-center">
+                <CardImg alt="..." src={image} top />
+                <CardBody style={{ height: "13em" }}>
+                  <CardTitle className="mb-3 text-center" tag="h3">
+                    {name}
+                  </CardTitle>
+                  <CardText className="mb-4">
+                    <Row className="justify-content-center">
+                      <Col lg="12">{model}</Col>
+                    </Row>
+                  </CardText>
+                  <Button id="2" color="primary" onClick={onViewAssetDetails}>
+                    Read More
+                  </Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
         </CardBody>
       </Card>
     </>

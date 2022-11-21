@@ -13,7 +13,7 @@ export const CardViewPanel = () => {
     <>
       <Row>
         {assets.map(asset => (
-          <Col sm="3">
+          <Col sm="6">
             <CardViewDetails
               detailId={asset.id}
               name={asset.name}
@@ -22,7 +22,7 @@ export const CardViewPanel = () => {
               model={asset.model}
               barcode={asset.barcode}
               category={asset.category}
-              assetstatus={asset.assetstatus}
+              assetStatus={asset.assetStatus}
               image={asset.image}
             />
           </Col>

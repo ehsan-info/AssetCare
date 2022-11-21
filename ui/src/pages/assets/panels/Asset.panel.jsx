@@ -13,7 +13,7 @@ export const AssetsPanel = () => {
   const onSavePartner = () => {
     setActivePanel("detail");
 
-    setSuccessMessage("Asset Aded");
+    setSuccessMessage("Asset Added");
     setIsSuccess(true);
     setSaveSent(true);
   };

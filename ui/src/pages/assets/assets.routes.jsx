@@ -1,6 +1,8 @@
 import { allAuthRoles } from "../utils";
 
-import { ASSETS_PAGE, AssetsPage } from ".";
+import { AssetDetailsPage } from "./asset-details";
+
+import { ASSETS_PAGE, AssetsPage, ASSET_DETAILS } from ".";
 
 export const assetsPage = [
   {
@@ -13,5 +15,15 @@ export const assetsPage = [
     key: "Assets",
     allowedRoles: [...allAuthRoles],
     sideBarGroup: 2,
+  },
+  {
+    collapse: false,
+    global: true,
+    path: `${ASSET_DETAILS}/:id`,
+    component: <AssetDetailsPage />,
+    layout: "/admin",
+    name: `${ASSET_DETAILS}/:id`,
+    key: `PeopleTeams/${ASSET_DETAILS}/:id`,
+    allowedRoles: [...allAuthRoles],
   },
 ];
