@@ -2,9 +2,9 @@ import { allAuthRoles } from "../utils";
 
 import { LocationDetailsPage } from "./location-details";
 import { LocationMap } from "./location-map-view";
-import { LOCATION_DETAILS, LOCATION_MAP } from "./locations.routes.const";
+import { CREATE_LOCATION, LOCATION_DETAILS, LOCATION_MAP } from "./locations.routes.const";
 
-import { LOCATIONS_PAGE, LocationsPage } from ".";
+import { LOCATIONS_PAGE, LocationsPage, CreateLocationPage } from ".";
 
 export const locationPage = [
   {
@@ -37,6 +37,16 @@ export const locationPage = [
     layout: "/admin",
     name: `${LOCATION_MAP}`,
     key: `Users/${LOCATION_MAP}`,
+    allowedRoles: [...allAuthRoles],
+  },
+  {
+    collapse: false,
+    global: true,
+    path: CREATE_LOCATION,
+    component: <CreateLocationPage />,
+    layout: "/admin",
+    name: "Create Location",
+    key: CREATE_LOCATION,
     allowedRoles: [...allAuthRoles],
   },
 ];
