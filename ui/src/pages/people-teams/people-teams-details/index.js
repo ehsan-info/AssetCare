@@ -1,1 +1,3 @@
-export * from "./PeopleDetails.page";
+export * from "./people-details";
+export * from "./people-details";
+export * from "./team-details";

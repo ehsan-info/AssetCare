@@ -1,5 +1,7 @@
 import { allAuthRoles } from "../utils";
 
+import { TeamDetailsPage } from "./people-teams-details";
+
 import {
   PEOPLE_TEAMS_PAGE,
   PeopleAndTeamsPage,
@@ -9,8 +11,8 @@ import {
   CREATE_TEAM_PAGE,
   CreatePersonPage,
   CreateTeamPage,
+  TEAM_DETAILS,
 } from ".";
-
 export const peopleTeamsPage = [
   {
     collapse: false,
@@ -31,6 +33,16 @@ export const peopleTeamsPage = [
     layout: "/admin",
     name: `${PEOPLE_DETAILS}/:id`,
     key: `PeopleTeams/${PEOPLE_DETAILS}/:id`,
+    allowedRoles: [...allAuthRoles],
+  },
+  {
+    collapse: false,
+    global: true,
+    path: `${TEAM_DETAILS}/:id`,
+    component: <TeamDetailsPage />,
+    layout: "/admin",
+    name: `${TEAM_DETAILS}/:id`,
+    key: `PeopleTeams/${TEAM_DETAILS}/:id`,
     allowedRoles: [...allAuthRoles],
   },
   {

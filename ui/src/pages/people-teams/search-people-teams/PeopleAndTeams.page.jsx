@@ -10,7 +10,12 @@ import { groupsData, peopleData } from "data";
 import { useLocalStateAlerts } from "hooks";
 
 import { PeopleTeamSwitchButton, TeamsTableColumns } from "../components";
-import { CREATE_PERSON_PAGE, CREATE_TEAM_PAGE, PEOPLE_DETAILS } from "../peopleTeams.routes.const";
+import {
+  CREATE_PERSON_PAGE,
+  CREATE_TEAM_PAGE,
+  PEOPLE_DETAILS,
+  TEAM_DETAILS,
+} from "../peopleTeams.routes.const";
 
 import { PeopleTableColumns } from "./People.table";
 
@@ -40,6 +45,9 @@ export const PeopleAndTeamsPage = () => {
 
   const onViewTeamsDetails = e => {
     e.preventDefault();
+    const { id } = e.currentTarget;
+    console.log(id);
+    navigate(`/admin${TEAM_DETAILS}/${id}`);
   };
 
   const onDeleteTeam = e => {

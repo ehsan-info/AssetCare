@@ -19,7 +19,6 @@ export const PeoplePanel = ({ people, onSave }) => {
   };
   return (
     <Form>
-      <hr className="my-4" />
       <h6 className="heading-small text-muted mb-4">People Data</h6>
       <div className="pl-lg-4">
         <Row>

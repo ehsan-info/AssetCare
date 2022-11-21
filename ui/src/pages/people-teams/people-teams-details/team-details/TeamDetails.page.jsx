@@ -5,22 +5,22 @@ import { Button, Card, CardBody, CardHeader, Col, Container, Row } from "reactst
 
 import { BoxHeader } from "components/headers";
 
-import { peopleData } from "data/people";
+import { TeamPanel } from "pages/people-teams/panels";
+import { PEOPLE_TEAMS_PAGE } from "pages/people-teams/peopleTeams.routes.const";
+
+import { groupsData } from "data";
 import { useLocalStateAlerts } from "hooks";
 
-import { PeoplePanel } from "../panels";
-import { PEOPLE_TEAMS_PAGE } from "../peopleTeams.routes.const";
-
-export const PeopleDetailsPage = () => {
+export const TeamDetailsPage = () => {
   const { id } = useParams();
   const peopleId = parseInt(id);
   const navigate = useNavigate();
 
   const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
 
-  const [people] = useState(peopleData.find(e => e.id === peopleId));
+  const [team] = useState(groupsData.find(e => e.id === peopleId));
 
-  const onSavePeople = peopleRequest => {
+  const onSaveTeam = peopleRequest => {
     const httpUpdateRequest = {
       id: peopleRequest.id,
       body: peopleRequest,
@@ -42,11 +42,9 @@ export const PeopleDetailsPage = () => {
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">Person Details</h3>
+                    <h3 className="mb-0">Team Details</h3>
                   </Col>
-                </Row>
-                <Row className="align-items-center py-4">
-                  <Col lg="12" xs="7" className="text-right">
+                  <Col xs="4" className="text-right">
                     <Button
                       className="btn btn-primary"
                       color="primary"
@@ -58,7 +56,7 @@ export const PeopleDetailsPage = () => {
                 </Row>
               </CardHeader>
               <CardBody>
-                <PeoplePanel people={people} onSave={onSavePeople} />
+                <TeamPanel team={team} onSave={onSaveTeam} />
               </CardBody>
             </Card>
           </Col>

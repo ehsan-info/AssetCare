@@ -1,1 +1,2 @@
-export * from "./PeoplePanels";
+export * from "./people-panel";
+export * from "./team-panel";
