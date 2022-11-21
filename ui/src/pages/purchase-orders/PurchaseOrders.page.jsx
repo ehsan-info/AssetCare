@@ -9,7 +9,7 @@ import { ReactTable } from "components/widgets";
 import { purchaseOrdersData } from "data";
 import { useLocalStateAlerts } from "hooks";
 
-import { PURCHASE_ORDERS_DETAILS, PurchaseOrdersTableColumns } from ".";
+import { PURCHASE_ORDERS_DETAILS, PurchaseOrdersTableColumns, PURCHASE_ORDERS_CREATE } from ".";
 
 export const PurchaseOrdersPage = () => {
   const { alert, setSaveSent, setSuccessMessage, setIsSuccess } = useLocalStateAlerts();
@@ -57,7 +57,12 @@ export const PurchaseOrdersPage = () => {
                   <Col lg="auto">
                     <Button>Show/Hide</Button>
                     <Button>Export</Button>
-                    <Button color="primary">+ Purchase Order</Button>
+                    <Button
+                      color="primary"
+                      onClick={() => navigate(`/admin${PURCHASE_ORDERS_CREATE}`)}
+                    >
+                      + Purchase Order
+                    </Button>
                   </Col>
                 </Row>
               </CardBody>

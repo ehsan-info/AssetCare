@@ -9,7 +9,13 @@ export const workOrdersCategoriesData = [
   { id: 5, name: "Upgrade" },
 ];
 export const assetCategoriesData = [];
-export const purchaseOrdersCategoriesData = [];
+export const purchaseOrdersCategoriesData = [
+  { id: 1, name: "Damage" },
+  { id: 2, name: "Inspection" },
+  { id: 3, name: "Meter Reading" },
+  { id: 4, name: "None" },
+  { id: 5, name: "Preventative" },
+];
 export const meterCategoriesData = [{ id: 1, name: "Ambient" }];
 export const timerCategoriesData = [
   { id: 1, name: "Vendor Time" },

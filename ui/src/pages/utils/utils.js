@@ -1,4 +1,12 @@
-import { businessUnitsData, countriesData, employeesData, careRolesData, groupsData } from "data";
+import {
+  customersData,
+  vendorsData,
+  businessUnitsData,
+  countriesData,
+  employeesData,
+  careRolesData,
+  groupsData,
+} from "data";
 import { SELECT_ALL, Role } from "variables/app.consts";
 import { AuthorizationPolicies } from "variables/rbac.config";
 
@@ -105,6 +113,35 @@ export const selectAllEmployeeDataAsSelectOptions = () => {
     return { value: `${employee.id}`, label: `${employee.firstName} ${employee.lastName}` };
   });
   return [SELECT_ALL, ...employeesOptions];
+};
+
+export const selectAllVendorsDataAsSelectOptions = () => {
+  const vendorsOptions = vendorsData.map(vendor => {
+    return { value: `${vendor.id}`, label: vendor.name };
+  });
+  return [...vendorsOptions];
+};
+export const selectAllCustomersDataAsSelectOptions = () => {
+  const customersOptions = customersData.map(customer => {
+    return { value: `${customer.id}`, label: customer.name };
+  });
+  return [...customersOptions];
+};
+
+export const selectVendorsByIdsAsSelectValues = ids => {
+  const vendors = vendorsData.filter(vendor => ids.includes(vendor.id));
+  const vendorsOptions = vendors.map(vendor => {
+    return { value: `${vendor.id}`, label: vendor.name };
+  });
+  return [...vendorsOptions];
+};
+
+export const selectVendorByIdAsSelectValue = vendor => {
+  return { value: vendor, label: vendor };
+};
+
+export const selectCategoryByIdAsSelectValue = category => {
+  return { value: category, label: category };
 };
 
 export const selectRoleByIdAsSelectOption = id => {
